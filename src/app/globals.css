@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+:root {
+  --soft-blush: #ffc0cb;
+  --rose-gold: #b76e79;
+  --deep-berry: #722f37;
+  --creamy-white: #fff8f5;
+  --background: var(--creamy-white);
+  --foreground: var(--deep-berry);
+}
+
+@theme inline {
+  --color-soft-blush: var(--soft-blush);
+  --color-rose-gold: var(--rose-gold);
+  --color-deep-berry: var(--deep-berry);
+  --color-creamy-white: var(--creamy-white);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-quicksand), system-ui, sans-serif;
+  --font-serif: var(--font-dm-serif), Georgia, serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}

@@ -257,7 +257,7 @@ export const photos: Photo[] = [
   //Lodhi Garden  
   {
     id: "photo-lodhi-garden-1",
-    src: "/photos/Lodhi Garden/Lodhi_1.jpeg",
+    src: "/photos/Lodhi garden/Lodhi_1.jpeg",
     date: "2025-04-27T11:00:00.000Z",
     location: "Lodhi Garden",
     caption: "Lodhi Garden with you ❤️",
@@ -265,7 +265,7 @@ export const photos: Photo[] = [
   },
   {
     id: "photo-lodhi-garden-2",
-    src: "/photos/Lodhi Garden/Lodhi_2.jpeg",
+    src: "/photos/Lodhi garden/Lodhi_2.jpeg",
     date: "2025-04-27T11:10:00.000Z",
     location: "Lodhi Garden",
     caption: "Lodhi Garden with you ❤️",
@@ -273,7 +273,7 @@ export const photos: Photo[] = [
   },
   {
     id: "photo-lodhi-garden-3",
-    src: "/photos/Lodhi Garden/Lodhi_3.jpeg",
+    src: "/photos/Lodhi garden/Lodhi_3.jpeg",
     date: "2025-04-27T11:15:00.000Z",
     location: "Lodhi Garden",
     caption: "Lodhi Garden with you ❤️",
@@ -281,7 +281,7 @@ export const photos: Photo[] = [
   },
   {
     id: "photo-lodhi-garden-4",
-    src: "/photos/Lodhi Garden/Lodhi_4.jpeg",
+    src: "/photos/Lodhi garden/Lodhi_4.jpeg",
     date: "2025-04-27T11:20:00.000Z",
     location: "Lodhi Garden",
     caption: "Lodhi Garden with you ❤️",
@@ -289,7 +289,7 @@ export const photos: Photo[] = [
   },
   {
     id: "photo-lodhi-garden-5",
-    src: "/photos/Lodhi Garden/Lodhi_5.jpeg",
+    src: "/photos/Lodhi garden/Lodhi_5.jpeg",
     date: "2025-04-27T11:25:00.000Z",
     location: "Lodhi Garden",
     caption: "Lodhi Garden with you ❤️",
@@ -297,7 +297,7 @@ export const photos: Photo[] = [
   },
   {
     id: "photo-lodhi-garden-6",
-    src: "/photos/Lodhi Garden/Lodhi_6.jpeg",
+    src: "/photos/Lodhi garden/Lodhi_6.jpeg",
     date: "2025-04-27T11:30:00.000Z",
     location: "Lodhi Garden",
     caption: "Lodhi Garden with you ❤️",
@@ -307,7 +307,7 @@ export const photos: Photo[] = [
   //Gk2 
   {
     id: "photo-gk2-1",
-    src: "/photos/Gk2/Gk_1.jpeg",
+    src: "/photos/GK2/Gk_1.jpeg",
     date: "2025-08-23T11:00:00.000Z",
     location: "Greater Kailash",
     caption: "Greater Kailash with you ❤️",
@@ -315,7 +315,7 @@ export const photos: Photo[] = [
   },
   {
     id: "photo-gk2-2",
-    src: "/photos/Gk2/Gk_2.jpeg",
+    src: "/photos/GK2/Gk_2.jpeg",
     date: "2025-08-23T11:10:00.000Z",
     location: "Greater Kailash",
     caption: "Greater Kailash with you ❤️",
@@ -323,7 +323,7 @@ export const photos: Photo[] = [
   },
   {
     id: "photo-gk2-3",
-    src: "/photos/Gk2/Gk_3.jpeg",
+    src: "/photos/GK2/Gk_3.jpeg",
     date: "2025-08-23T11:15:00.000Z",
     location: "Greater Kailash",
     caption: "Greater Kailash with you ❤️",
@@ -331,7 +331,7 @@ export const photos: Photo[] = [
   },
   {
     id: "photo-gk2-4",
-    src: "/photos/Gk2/Gk_4.jpeg",
+    src: "/photos/GK2/Gk_4.jpeg",
     date: "2025-08-23T11:20:00.000Z",
     location: "Greater Kailash",
     caption: "Greater Kailash with you ❤️",
@@ -339,7 +339,7 @@ export const photos: Photo[] = [
   },
   {
     id: "photo-gk2-5",
-    src: "/photos/Gk2/Gk_5.jpeg",
+    src: "/photos/GK2/Gk_5.jpeg",
     date: "2025-08-23T11:25:00.000Z",
     location: "Greater Kailash",
     caption: "Greater Kailash with you ❤️",
@@ -347,7 +347,7 @@ export const photos: Photo[] = [
   },
   {
     id: "photo-gk2-6",
-    src: "/photos/Gk2/Gk_6.jpeg",
+    src: "/photos/GK2/Gk_6.jpeg",
     date: "2025-08-23T11:30:00.000Z",
     location: "Greater Kailash",
     caption: "Greater Kailash with you ❤️",
@@ -496,7 +496,7 @@ export const places: Place[] = [
     name: "Vips Ethnic Day",
     location: "New Delhi",
     description: "Our favorite spot for golden hour",
-    imageUrl: "/photos/VIPS Ethnic Day/Ethnic Day 1.jpeg",
+    imageUrl: "/photos/VIPS Ethnic Day/Ethnic_Day_1.jpeg",
     date: "2023-05-26",
   },
   {
@@ -536,7 +536,7 @@ export const places: Place[] = [
     name: "Lodhi Garden",
     location: "New Delhi",
     description: "Lodhi Garden with you ❤️",
-    imageUrl: "/photos/Lodhi Garden/Lodhi_1.jpeg",
+    imageUrl: "/photos/Lodhi garden/Lodhi_1.jpeg",
     date: "2025-04-27",
   },
   {
@@ -544,7 +544,7 @@ export const places: Place[] = [
     name: "Greater Kailash",
     location: "New Delhi",
     description: "Greater Kailash with you ❤️",
-    imageUrl: "/photos/Gk2/Gk_1.jpeg",
+    imageUrl: "/photos/GK2/Gk_1.jpeg",
     date: "2025-08-23",
   },
   {

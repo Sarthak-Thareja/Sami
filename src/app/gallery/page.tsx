@@ -3,14 +3,16 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PhotoCard from "@/components/PhotoCard";
+import LoveLetterIcon from "@/components/LoveLetterIcon";
 import { photos } from "@/lib/data";
 
 type SortOption = "newest" | "oldest";
-const locations = Array.from(new Set(photos.map((p) => p.location)));
 
 export default function GalleryPage() {
   const [sort, setSort] = useState<SortOption>("newest");
   const [locationFilter, setLocationFilter] = useState<string>("all");
+
+  const locations = useMemo(() => Array.from(new Set(photos.map((p) => p.location))), [photos]);
 
   const filteredAndSorted = useMemo(() => {
     let list = photos.filter(
@@ -25,14 +27,24 @@ export default function GalleryPage() {
   }, [sort, locationFilter]);
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="max-w-5xl mx-auto relative">
+      {/* Love Letter sticker - decorative corner */}
+      <motion.div
+        className="absolute top-0 right-0 opacity-30 sm:opacity-40"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 0.4, scale: 1 }}
+        transition={{ delay: 0.3 }}
+        aria-hidden
+      >
+        <LoveLetterIcon className="w-12 h-12 sm:w-14 sm:h-14 text-blush-pink" />
+      </motion.div>
       <motion.header
         className="text-center mb-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="font-serif text-3xl sm:text-4xl text-deep-berry">Our Gallery</h1>
+        <h1 className="font-serif text-3xl sm:text-4xl text-rose-900">Our Gallery</h1>
         <p className="text-rose-gold/80 mt-2">Every moment with you</p>
       </motion.header>
 
@@ -84,7 +96,7 @@ export default function GalleryPage() {
         <AnimatePresence mode="popLayout">
           {filteredAndSorted.map((photo, index) => (
             <motion.div
-              key={photo.id}
+              key={`${photo.id}-${index}`}
               layout
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -96,6 +108,9 @@ export default function GalleryPage() {
           ))}
         </AnimatePresence>
       </motion.div>
+      {filteredAndSorted.length === 0 && (
+        <p className="text-center text-rose-gold/80 py-12">No photos found for this location.</p>
+      )}
     </div>
   );
 }

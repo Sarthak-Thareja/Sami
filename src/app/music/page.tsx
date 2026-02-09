@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Music } from "lucide-react";
 import MusicCard from "@/components/MusicCard";
 import { music } from "@/lib/data";
 
@@ -18,14 +19,24 @@ export default function MusicPage() {
   const filtered = music.filter((t) => t.category === activeTab);
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="max-w-5xl mx-auto relative">
+      {/* Music Note sticker - decorative near categories */}
+      <motion.div
+        className="absolute top-0 right-0 opacity-30 sm:opacity-40"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 0.4, scale: 1 }}
+        transition={{ delay: 0.3 }}
+        aria-hidden
+      >
+        <Music className="w-12 h-12 sm:w-14 sm:h-14 text-blush-pink" />
+      </motion.div>
       <motion.header
         className="text-center mb-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="font-serif text-3xl sm:text-4xl text-deep-berry">Our Jam</h1>
+        <h1 className="font-serif text-3xl sm:text-4xl text-rose-900">Our Jam</h1>
         <p className="text-rose-gold/80 mt-2">Songs that remind us of us</p>
       </motion.header>
 

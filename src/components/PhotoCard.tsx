@@ -27,12 +27,12 @@ export default function PhotoCard({ photo, layout = false, index = 0 }: PhotoCar
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
     >
-      <div className="relative aspect-[4/3] bg-soft-blush/20">
+      <div className="relative aspect-[4/3] bg-soft-blush/20 flex items-center justify-center overflow-hidden">
         <Image
           src={photo.src}
           alt={photo.caption}
           fill
-          className="object-cover"
+          className="object-contain"
           sizes="(max-width: 768px) 100vw, 33vw"
         />
       </div>

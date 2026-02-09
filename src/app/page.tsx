@@ -7,25 +7,35 @@ import { Heart, Camera, Music, MapPin, ChevronLeft, ChevronRight } from "lucide-
 import Typewriter from "@/components/Typewriter";
 import PhotoCard from "@/components/PhotoCard";
 import MusicCard from "@/components/MusicCard";
+import LoveLetterIcon from "@/components/LoveLetterIcon";
+import ValentineModal from "@/components/ValentineModal";
 import { photos, music, places } from "@/lib/data";
 
-const HERO_TEXT = "To the most special person in my life...";
+const HERO_TEXT =
+  "Dedicated to the love of my life, Soumi ❤️";
 
 export default function HomePage() {
+  const [isUnlocked, setIsUnlocked] = useState(false);
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [typewriterDone, setTypewriterDone] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
-  const displayPhotos = photos.slice(0, 3);
+  const displayPhotos = photos.filter((photo) => photo.group === "Home-Page");
   const displayMusic = music.slice(0, 3);
 
+  const unlocked = isUnlocked;
+
   useEffect(() => {
-    const t = HERO_TEXT.length * 80 + 500;
+    const t = HERO_TEXT.length * 70 + 600;
     const id = setTimeout(() => setTypewriterDone(true), t);
     return () => clearTimeout(id);
   }, []);
 
   const next = () => setCarouselIndex((i) => (i + 1) % displayPhotos.length);
   const prev = () => setCarouselIndex((i) => (i - 1 + displayPhotos.length) % displayPhotos.length);
+
+  if (!unlocked) {
+    return <ValentineModal onAccept={() => setIsUnlocked(true)} />;
+  }
 
   return (
     <div className="max-w-4xl mx-auto space-y-16">
@@ -43,12 +53,16 @@ export default function HomePage() {
         >
           <Heart className="w-12 h-12 sm:w-14 sm:h-14 text-rose-gold fill-soft-blush" />
         </motion.div>
-        <h1 className="font-serif text-2xl sm:text-4xl text-deep-berry min-h-[1.2em]">
-          <Typewriter text={HERO_TEXT} speed={80} />
-        </h1>
+        <div className="max-w-fit mx-auto block" style={{ wordBreak: "keep-all" }}>
+          <h1
+            className="font-dancing text-2xl sm:text-4xl md:text-5xl text-rose-900 leading-loose tracking-widest min-h-[2em] whitespace-pre-line block"
+          >
+            <Typewriter text={HERO_TEXT} speed={70} fadeIn="letter" />
+          </h1>
+        </div>
         {typewriterDone && (
           <motion.p
-            className="mt-4 text-rose-gold/90 text-lg"
+            className="mt-4 text-blush-pink/90 text-lg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
@@ -58,16 +72,27 @@ export default function HomePage() {
         )}
       </motion.section>
 
-      {/* Our Photos - Carousel */}
+      {/* Our Gallery - Carousel */}
       <motion.section
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
+        className="relative"
       >
+        {/* Love Letter sticker - decorative */}
+        <motion.div
+          className="absolute -top-2 -right-2 sm:top-0 sm:right-0 opacity-40"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 0.4, scale: 1 }}
+          transition={{ delay: 0.5 }}
+          aria-hidden
+        >
+          <LoveLetterIcon className="w-10 h-10 sm:w-12 sm:h-12 text-blush-pink" />
+        </motion.div>
         <div className="flex items-center justify-between mb-6">
-          <h2 className="font-serif text-xl sm:text-2xl text-deep-berry flex items-center gap-2">
+          <h2 className="font-serif text-xl sm:text-2xl text-rose-900 flex items-center gap-2">
             <Camera className="w-6 h-6 text-rose-gold" />
-            Our Photos
+            Our Gallery
           </h2>
           <Link href="/gallery">
             <motion.span
@@ -134,9 +159,20 @@ export default function HomePage() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
+        className="relative"
       >
+        {/* Music Note sticker - decorative */}
+        <motion.div
+          className="absolute -top-2 -right-2 sm:top-0 sm:right-0 opacity-40"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 0.4, scale: 1 }}
+          transition={{ delay: 0.6 }}
+          aria-hidden
+        >
+          <Music className="w-10 h-10 sm:w-12 sm:h-12 text-blush-pink" />
+        </motion.div>
         <div className="flex items-center justify-between mb-6">
-          <h2 className="font-serif text-xl sm:text-2xl text-deep-berry flex items-center gap-2">
+          <h2 className="font-serif text-xl sm:text-2xl text-rose-900 flex items-center gap-2">
             <Music className="w-6 h-6 text-rose-gold" />
             Our Jam
           </h2>
@@ -165,7 +201,7 @@ export default function HomePage() {
         transition={{ delay: 0.4 }}
       >
         <div className="flex items-center justify-between mb-6">
-          <h2 className="font-serif text-xl sm:text-2xl text-deep-berry flex items-center gap-2">
+          <h2 className="font-serif text-xl sm:text-2xl text-rose-900 flex items-center gap-2">
             <MapPin className="w-6 h-6 text-rose-gold" />
             Memories
           </h2>

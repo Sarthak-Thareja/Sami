@@ -5,8 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
 import { Heart } from "lucide-react";
 
-const STORAGE_KEY = "valentine-unlocked";
-
 function getRandomPosition() {
   const padding = 120;
   const maxX = typeof window !== "undefined" ? window.innerWidth - padding : 300;
@@ -17,7 +15,11 @@ function getRandomPosition() {
   };
 }
 
-export default function ValentineModal() {
+interface ValentineModalProps {
+  onAccept?: () => void;
+}
+
+export default function ValentineModal({ onAccept }: ValentineModalProps = {}) {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [noButtonPos, setNoButtonPos] = useState<{ x: number; y: number } | null>(null);
   const [initialNoPos, setInitialNoPos] = useState<{ x: number; y: number } | null>(null);
@@ -25,8 +27,6 @@ export default function ValentineModal() {
 
   useEffect(() => {
     setMounted(true);
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored === "true") setIsUnlocked(true);
     setInitialNoPos({
       x: window.innerWidth / 2 + 90,
       y: window.innerHeight / 2 + 55,
@@ -53,9 +53,9 @@ export default function ValentineModal() {
 
   const handleYesClick = useCallback(() => {
     triggerConfetti();
+    onAccept?.();
     setIsUnlocked(true);
-    if (typeof window !== "undefined") localStorage.setItem(STORAGE_KEY, "true");
-  }, [triggerConfetti]);
+  }, [triggerConfetti, onAccept]);
 
   if (!mounted) return null;
 

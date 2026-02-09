@@ -2,22 +2,27 @@
 
 :root {
   --soft-blush: #ffc0cb;
+  --blush-pink: #f9b4c0;
   --rose-gold: #b76e79;
+  --rose-900: #881337;
   --deep-berry: #722f37;
   --creamy-white: #fff8f5;
   --background: var(--creamy-white);
-  --foreground: var(--deep-berry);
+  --foreground: var(--rose-900);
 }
 
 @theme inline {
   --color-soft-blush: var(--soft-blush);
+  --color-blush-pink: var(--blush-pink);
   --color-rose-gold: var(--rose-gold);
+  --color-rose-900: var(--rose-900);
   --color-deep-berry: var(--deep-berry);
   --color-creamy-white: var(--creamy-white);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-quicksand), system-ui, sans-serif;
   --font-serif: var(--font-dm-serif), Georgia, serif;
+  --font-dancing: var(--font-dancing-script), cursive;
 }
 
 body {

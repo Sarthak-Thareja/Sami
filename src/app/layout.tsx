@@ -4,7 +4,7 @@ import "./globals.css";
 import ValentineModal from "@/components/ValentineModal";
 import Navbar from "@/components/Navbar";
 import PageTransition from "@/components/PageTransition";
-import FloatingHearts from "@/components/FloatingHearts";
+import FloatingHeartsWrapper from "@/components/FloatingHeartsWrapper";
 
 const dmSerif = DM_Serif_Display({
   weight: "400",
@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${dmSerif.variable} ${quicksand.variable} ${dancingScript.variable}`}>
       <body className="font-sans antialiased min-h-screen bg-background text-foreground">
-        <FloatingHearts />
+        <FloatingHeartsWrapper />
         <Navbar />
         <main className="pt-40 pb-24 px-4 min-h-screen relative z-10">
           <PageTransition>{children}</PageTransition>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PhotoCard from "@/components/PhotoCard";
 import LoveLetterIcon from "@/components/LoveLetterIcon";
@@ -9,10 +9,16 @@ import { photos } from "@/lib/data";
 type SortOption = "newest" | "oldest";
 
 export default function GalleryPage() {
+  const [mounted, setMounted] = useState(false);
   const [sort, setSort] = useState<SortOption>("newest");
   const [locationFilter, setLocationFilter] = useState<string>("all");
 
-  const locations = useMemo(() => Array.from(new Set(photos.map((p) => p.location))), [photos]);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Recalculate on each mount (and keeps options stable with static data)
+  const locations = Array.from(new Set(photos.map((p) => p.location)));
 
   const filteredAndSorted = useMemo(() => {
     let list = photos.filter(
@@ -31,8 +37,8 @@ export default function GalleryPage() {
       {/* Love Letter sticker - decorative corner */}
       <motion.div
         className="absolute top-0 right-0 opacity-30 sm:opacity-40"
-        initial={{ opacity: 0.3, scale: 0.9 }}
-        animate={{ opacity: 0.4, scale: 1 }}
+        initial={mounted ? { opacity: 0.3, scale: 0.9 } : false}
+        animate={mounted ? { opacity: 0.4, scale: 1 } : undefined}
         transition={{ delay: 0.3 }}
         aria-hidden
       >
@@ -40,8 +46,8 @@ export default function GalleryPage() {
       </motion.div>
       <motion.header
         className="text-center mb-10"
-        initial={{ opacity: 1, y: 0 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={mounted ? { opacity: 1, y: 0 } : false}
+        animate={mounted ? { opacity: 1, y: 0 } : undefined}
         transition={{ duration: 0.5 }}
       >
         <h1 className="font-serif text-3xl sm:text-4xl text-rose-900">Our Gallery</h1>
@@ -51,8 +57,8 @@ export default function GalleryPage() {
       {/* Sort / Filter bar */}
       <motion.div
         className="flex flex-wrap items-center gap-3 mb-8 p-4 rounded-3xl bg-creamy-white/80 backdrop-blur-md border border-rose-gold/20"
-        initial={{ opacity: 1, y: 0 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={mounted ? { opacity: 1, y: 0 } : false}
+        animate={mounted ? { opacity: 1, y: 0 } : undefined}
         transition={{ delay: 0.1 }}
       >
         <span className="text-deep-berry font-medium text-sm">Sort:</span>
@@ -89,25 +95,11 @@ export default function GalleryPage() {
       </motion.div>
 
       {/* Masonry grid with layout animation */}
-      <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        layout
-      >
-        <AnimatePresence mode="popLayout">
-          {filteredAndSorted.map((photo, index) => (
-            <motion.div
-              key={`${photo.id}-${index}`}
-              layout
-              initial={{ opacity: 1, scale: 1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            >
-              <PhotoCard photo={photo} layout index={index} />
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </motion.div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredAndSorted.map((photo, index) => (
+          <PhotoCard key={photo.id} photo={photo} layout index={index} />
+        ))}
+      </div>
       {filteredAndSorted.length === 0 && (
         <p className="text-center text-rose-gold/80 py-12">No photos found for this location.</p>
       )}

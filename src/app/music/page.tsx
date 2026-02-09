@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Music } from "lucide-react";
 import MusicCard from "@/components/MusicCard";
@@ -15,8 +15,17 @@ const tabs: { id: TabId; label: string }[] = [
 ];
 
 export default function MusicPage() {
+  const [mounted, setMounted] = useState(false);
   const [activeTab, setActiveTab] = useState<TabId>("Our Favs");
   const filtered = music.filter((t) => t.category === activeTab);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div className="max-w-5xl mx-auto relative">

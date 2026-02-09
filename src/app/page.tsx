@@ -81,7 +81,7 @@ export default function HomePage() {
       >
         {/* Love Letter sticker - decorative */}
         <motion.div
-          className="absolute -top-2 -right-2 sm:top-0 sm:right-0 opacity-40"
+          className="absolute -top-2 -right-2 sm:top-0 sm:right-0 opacity-40 pointer-events-none"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 0.4, scale: 1 }}
           transition={{ delay: 0.5 }}
@@ -94,9 +94,12 @@ export default function HomePage() {
             <Camera className="w-6 h-6 text-rose-gold" />
             Our Gallery
           </h2>
-          <Link href="/gallery">
+          <Link 
+            href="/gallery" 
+            className="text-rose-gold font-medium text-sm inline-flex items-center gap-1 cursor-pointer relative z-10"
+          >
             <motion.span
-              className="text-rose-gold font-medium text-sm flex items-center gap-1"
+              className="inline-flex items-center gap-1"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -163,7 +166,7 @@ export default function HomePage() {
       >
         {/* Music Note sticker - decorative */}
         <motion.div
-          className="absolute -top-2 -right-2 sm:top-0 sm:right-0 opacity-40"
+          className="absolute -top-2 -right-2 sm:top-0 sm:right-0 opacity-40 pointer-events-none"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 0.4, scale: 1 }}
           transition={{ delay: 0.6 }}
@@ -176,9 +179,12 @@ export default function HomePage() {
             <Music className="w-6 h-6 text-rose-gold" />
             Our Jam
           </h2>
-          <Link href="/music">
+          <Link 
+            href="/music" 
+            className="text-rose-gold font-medium text-sm inline-flex items-center gap-1 cursor-pointer relative z-10"
+          >
             <motion.span
-              className="text-rose-gold font-medium text-sm flex items-center gap-1"
+              className="inline-flex items-center gap-1"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

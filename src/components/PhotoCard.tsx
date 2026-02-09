@@ -21,7 +21,7 @@ export default function PhotoCard({ photo, layout = false, index = 0 }: PhotoCar
     <motion.article
       className="rounded-3xl overflow-hidden bg-creamy-white/80 backdrop-blur-md border border-rose-gold/20 shadow-lg"
       layout={layout}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 1, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05, type: "spring", stiffness: 200, damping: 25 }}
       whileHover={{ scale: 1.02 }}

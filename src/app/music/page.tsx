@@ -23,7 +23,7 @@ export default function MusicPage() {
       {/* Music Note sticker - decorative near categories */}
       <motion.div
         className="absolute top-0 right-0 opacity-30 sm:opacity-40"
-        initial={{ opacity: 0, scale: 0.8 }}
+        initial={{ opacity: 0.3, scale: 0.9 }}
         animate={{ opacity: 0.4, scale: 1 }}
         transition={{ delay: 0.3 }}
         aria-hidden
@@ -32,7 +32,7 @@ export default function MusicPage() {
       </motion.div>
       <motion.header
         className="text-center mb-10"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 1, y: 0 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
@@ -43,7 +43,7 @@ export default function MusicPage() {
       {/* Tabs */}
       <motion.div
         className="flex flex-wrap justify-center gap-2 mb-10"
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 1, y: 0 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
       >
@@ -80,7 +80,7 @@ export default function MusicPage() {
           {filtered.map((track, i) => (
             <motion.div
               key={track.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 1, y: 0 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ delay: i * 0.05, type: "spring", stiffness: 200, damping: 25 }}

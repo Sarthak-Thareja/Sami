@@ -437,7 +437,7 @@ export const music: MusicTrack[] = [
     title: "Lag Ja Gale Se Phir",
     artist: "Lata Mangeshkar",
     category: "Soumi's Favs",
-    spotifyUrl: "https://open.spotify.com/track/7qiZfU4dY1lWllzX7mPBI3",
+    spotifyUrl: "https://open.spotify.com/track/5Y5c5bJK0O7KJDDAYKkppH?si=0af9b0b203f44c96",
     coverImg: "/music-covers/Soumi's favs/Lag_jaa_Gale.png",
   },
   {
@@ -485,7 +485,7 @@ export const music: MusicTrack[] = [
     title: "Lag Ja Gale Se Phir",
     artist: "Lata Mangeshkar",
     category: "Our Favs",
-    spotifyUrl: "https://open.spotify.com/track/7qiZfU4dY1lWllzX7mPBI3",
+    spotifyUrl: "https://open.spotify.com/track/5Y5c5bJK0O7KJDDAYKkppH?si=0af9b0b203f44c96",
     coverImg: "/music-covers/Soumi's favs/Lag_jaa_Gale.png",
   },
 ];

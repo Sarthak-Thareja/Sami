@@ -23,17 +23,13 @@ export default function MusicPage() {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return null;
-  }
-
   return (
     <div className="max-w-5xl mx-auto relative">
       {/* Music Note sticker - decorative near categories */}
       <motion.div
         className="absolute top-0 right-0 opacity-30 sm:opacity-40"
-        initial={{ opacity: 0.3, scale: 0.9 }}
-        animate={{ opacity: 0.4, scale: 1 }}
+        initial={mounted ? { opacity: 0.3, scale: 0.9 } : false}
+        animate={mounted ? { opacity: 0.4, scale: 1 } : undefined}
         transition={{ delay: 0.3 }}
         aria-hidden
       >
@@ -41,8 +37,8 @@ export default function MusicPage() {
       </motion.div>
       <motion.header
         className="text-center mb-10"
-        initial={{ opacity: 1, y: 0 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={mounted ? { opacity: 1, y: 0 } : false}
+        animate={mounted ? { opacity: 1, y: 0 } : undefined}
         transition={{ duration: 0.5 }}
       >
         <h1 className="font-serif text-3xl sm:text-4xl text-rose-900">Our Jam</h1>
